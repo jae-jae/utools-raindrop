@@ -1,0 +1,10 @@
+{
+  "name": "utools-raindrop",
+  "version": "1.0.0",
+  "description": "raindrop 浏览器书签 utools 插件",
+  "author": "Jaeger <JaegerCode@gmail.com>",
+  "dependencies": {
+    "fuse.js": "^7.0.0",
+    "minisearch": "^6.2.0"
+  }
+}
