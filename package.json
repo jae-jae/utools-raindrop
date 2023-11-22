@@ -4,7 +4,6 @@
   "description": "raindrop 浏览器书签 utools 插件",
   "author": "Jaeger <JaegerCode@gmail.com>",
   "dependencies": {
-    "fuse.js": "^7.0.0",
-    "minisearch": "^6.2.0"
+    "fuse.js": "^7.0.0"
   }
 }
