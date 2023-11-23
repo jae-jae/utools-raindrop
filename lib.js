@@ -13,9 +13,22 @@ function localSearch(keyword) {
     return result.map(item => item.item)
 }
 
+let token = {
+    set: (token) => {
+        localStorage.setItem("token", token)
+    },
+    get: () => {
+        return localStorage.getItem("token")
+    },
+    clear: () => {
+        localStorage.removeItem("token")
+    }
+}
+
 function search(keyword) {
     var myHeaders = new Headers();
-    myHeaders.append("Authorization", "Bearer 013f88d2-e0a6-4a32-bd5c-a21303a0ab26");
+    const t = token.get()
+    myHeaders.append("Authorization", "Bearer " + t);
     myHeaders.append("Content-Type", "application/json");
 
     var requestOptions = {
@@ -23,6 +36,7 @@ function search(keyword) {
         headers: myHeaders,
         redirect: 'follow'
     };
+    console.log(requestOptions);
 
     return fetch("https://api.raindrop.io/rest/v1/raindrops/0?sort=score&search=" + keyword, requestOptions)
         .then(response => response.json())
@@ -42,8 +56,13 @@ let store = {
         data.unshift(item)
         data = data.slice(0, 100)
         localStorage.setItem("bookmarks", JSON.stringify(data))
+    },
+    clear: () => {
+        localStorage.removeItem("bookmarks")
     }
 }
+
+
 
 function bookmarksToList(bookmarks) {
     let utoolsData = []
@@ -69,5 +88,6 @@ module.exports = {
     localSearch,
     search,
     store,
-    bookmarksToList
+    bookmarksToList,
+    token
 }

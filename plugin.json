@@ -6,6 +6,11 @@
 		  "code": "raindrop",
 		  "explain": "raindrop",
 		  "cmds":["raindrop", "bookmark", "书签"]
-		}
+		},
+		{
+			"code": "raindrop-settings",
+			"explain": "raindrop token settings",
+			"cmds":["raindrop settings", "raindrop设置"]
+		  }
 	]
 }
