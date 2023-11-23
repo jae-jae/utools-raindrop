@@ -2,6 +2,10 @@
 # uTools Raindrop
 Raindrop 书签 uTools 插件.
 
+Features:
+- 本地搜索优先，极速响应
+- 优化结果排序，最近使用过的优先
+
 # 使用
 
 ## 1. 获取 Raindrop Token
