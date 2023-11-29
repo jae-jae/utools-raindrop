@@ -16,12 +16,16 @@ function localSearch(keyword) {
 let token = {
     set: (token) => {
         localStorage.setItem("token", token)
+        utools.db.put({
+            _id: "token",
+            token: token
+        })
     },
     get: () => {
-        return localStorage.getItem("token")
+        return utools.db.get("token")?.token
     },
     clear: () => {
-        localStorage.removeItem("token")
+        utools.db.remove("token")
     }
 }
 
@@ -44,7 +48,7 @@ function search(keyword) {
 
 let store = {
     load: () => {
-        let data = localStorage.getItem("bookmarks")
+        let data = utools.dbStorage.getItem("bookmarks")
         if (data) {
             return JSON.parse(data)
         }
@@ -55,10 +59,10 @@ let store = {
         data = data.filter(i => i._id !== item._id)
         data.unshift(item)
         data = data.slice(0, 100)
-        localStorage.setItem("bookmarks", JSON.stringify(data))
+        utools.dbStorage.setItem("bookmarks", JSON.stringify(data))
     },
     clear: () => {
-        localStorage.removeItem("bookmarks")
+        utools.dbStorage.removeItem("bookmarks")
     }
 }
 
