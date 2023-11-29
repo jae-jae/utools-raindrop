@@ -5,5 +5,8 @@
   "author": "Jaeger <JaegerCode@gmail.com>",
   "dependencies": {
     "fuse.js": "^7.0.0"
+  },
+  "scripts": {
+    "build": "./build.sh"
   }
 }
