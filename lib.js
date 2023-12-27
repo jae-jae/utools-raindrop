@@ -51,7 +51,7 @@ let store = {
         return nativeId + "/bookmarks"
     },
     load: () => {
-        let data = utools.dbStorage.getItem(this._get_key())
+        let data = utools.dbStorage.getItem(store._get_key())
         if (data) {
             return JSON.parse(data)
         }
@@ -62,10 +62,10 @@ let store = {
         data = data.filter(i => i._id !== item._id)
         data.unshift(item)
         data = data.slice(0, 100)
-        utools.dbStorage.setItem(this._get_key(), JSON.stringify(data))
+        utools.dbStorage.setItem(store._get_key(), JSON.stringify(data))
     },
     clear: () => {
-        utools.dbStorage.removeItem(this._get_key())
+        utools.dbStorage.removeItem(store._get_key())
     }
 }
 
