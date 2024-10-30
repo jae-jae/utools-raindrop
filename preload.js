@@ -78,6 +78,10 @@ window.exports = {
                         "title": "clear raindrop token",
                         "action": "clear-token"
                     },
+                    {
+                        "title": "clear bookmarks cache",
+                        "action": "clear-cache"
+                    },
                 ])
              },
              search: (action, searchWord, callbackSetList) => {
@@ -91,13 +95,25 @@ window.exports = {
                         "title": "clear raindrop token",
                         "action": "clear-token"
                     },
+                    {
+                        "title": "clear bookmarks cache",
+                        "action": "clear-cache"
+                    },
                 ])
              },
              select: (action, itemData, callbackSetList) => {
                 console.log(itemData)
                 if(itemData.action == "clear-token") {
                     token.clear()
+                    store.clear()
                     utools.showNotification("clear token success")
+                    window.utools.outPlugin()
+                    return
+                }
+
+                if(itemData.action == "clear-cache") {
+                    store.clear()
+                    utools.showNotification("clear cache success")
                     window.utools.outPlugin()
                     return
                 }
